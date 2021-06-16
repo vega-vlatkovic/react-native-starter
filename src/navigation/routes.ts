@@ -1,4 +1,4 @@
 export enum AppRoute {
-  POSTS = "Posts",
-  POST = "Post",
+	POSTS = "Posts",
+	POST = "Post",
 }
