@@ -3,7 +3,7 @@ import Colors, { Opacity } from "./colors";
 
 export const TITLE_INTRO_BOLD = {
 	color: Colors.WHITE,
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 40,
 	lineHeight: 48,
 	textAlign: "left",
@@ -11,7 +11,7 @@ export const TITLE_INTRO_BOLD = {
 
 export const TITLE_INTRO_LIGHT = {
 	color: Colors.WHITE,
-	// fontFamily: "Avenir-Medium"
+	fontFamily: "Avenir-Medium",
 	fontSize: 40,
 	lineHeight: 48,
 	textAlign: "left",
@@ -19,7 +19,7 @@ export const TITLE_INTRO_LIGHT = {
 
 export const TOUR_BOLD = {
 	color: Colors.WHITE,
-	// fontFamily: "Avenir Black"
+	fontFamily: "Avenir Black",
 	fontSize: 28,
 	letterSpacing: -0.28,
 	lineHeight: 36,
@@ -28,7 +28,7 @@ export const TOUR_BOLD = {
 
 export const TOUR_LIGHT = {
 	color: Colors.WHITE,
-	// fontFamily: "Avenir-Medium"
+	fontFamily: "Avenir-Medium",
 	fontSize: 28,
 	letterSpacing: -0.31,
 	lineHeight: 36,
@@ -37,7 +37,7 @@ export const TOUR_LIGHT = {
 
 export const TITLE_1 = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 28,
 	lineHeight: 36,
 	textAlign: "left",
@@ -45,7 +45,7 @@ export const TITLE_1 = {
 
 export const TITLE_2 = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 18,
 	letterSpacing: -0.18,
 	lineHeight: 30,
@@ -54,7 +54,7 @@ export const TITLE_2 = {
 
 export const TITLE_3 = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 16,
 	letterSpacing: -0.18,
 	lineHeight: 22,
@@ -63,7 +63,7 @@ export const TITLE_3 = {
 
 export const BODY_1 = {
 	color: Colors.GREY_5,
-	// fontFamily: "Avenir-Book"
+	fontFamily: "Avenir-Book",
 	fontSize: 14,
 	lineHeight: 22,
 	textAlign: "left",
@@ -71,7 +71,7 @@ export const BODY_1 = {
 
 export const BODY_2 = {
 	color: Colors.GREY_5,
-	// fontFamily: "Avenir-Book"
+	fontFamily: "Avenir-Book",
 	fontSize: 16,
 	letterSpacing: -0.18,
 	lineHeight: 30,
@@ -80,7 +80,7 @@ export const BODY_2 = {
 
 export const BODY_3 = {
 	color: Colors.GREY_5,
-	// fontFamily: "Avenir-Medium"
+	fontFamily: "Avenir-Medium",
 	fontSize: 16,
 	letterSpacing: -0.18,
 	lineHeight: 22,
@@ -89,7 +89,7 @@ export const BODY_3 = {
 
 export const BODY_4_QUOTE = {
 	color: Colors.getCompanionPurpleDark(Opacity.SOLID),
-	// fontFamily: "Avenir-Book"
+	fontFamily: "Avenir-Book",
 	fontSize: 26,
 	lineHeight: 36,
 	textAlign: "left",
@@ -97,7 +97,7 @@ export const BODY_4_QUOTE = {
 
 export const BODY_5 = {
 	color: Colors.GREY_5,
-	// fontFamily: "Avenir-Roman"
+	fontFamily: "Avenir-Roman",
 	fontSize: 12,
 	lineHeight: 18,
 	textAlign: "left",
@@ -105,7 +105,7 @@ export const BODY_5 = {
 
 export const BODY_LABEL = {
 	color: Colors.getCompanionPurpleDark(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 12,
 	lineHeight: 22,
 	textAlign: "left",
@@ -113,7 +113,7 @@ export const BODY_LABEL = {
 
 export const BODY_LABEL_BLUE = {
 	color: Colors.getCompanionBlue(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 12,
 	lineHeight: 22,
 	textAlign: "left",
@@ -121,7 +121,7 @@ export const BODY_LABEL_BLUE = {
 
 export const BODY_LABEL_RED = {
 	color: Colors.getCompanionRed(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 12,
 	lineHeight: 22,
 	textAlign: "left",
@@ -129,7 +129,7 @@ export const BODY_LABEL_RED = {
 
 export const BUTTON_1 = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 16,
 	lineHeight: 22,
 	textAlign: "left",
@@ -138,7 +138,7 @@ export const BUTTON_1 = {
 export const BUTTON_2 = {
 	color: Colors.WHITE,
 	backgroundColor: Colors.getCompanionPurpleDark(Opacity.SOLID),
-	// fontFamily: "Avenir-Heavy"
+	fontFamily: "Avenir-Heavy",
 	fontSize: 14,
 	lineHeight: 22,
 	textAlign: "left",
@@ -146,7 +146,7 @@ export const BUTTON_2 = {
 
 export const NAV_LABEL = {
 	color: Colors.GREY_4,
-	// fontFamily: "Avenir-Black"
+	fontFamily: "Avenir-Black",
 	fontSize: 8,
 	lineHeight: 11,
 	textAlign: "left",
@@ -154,7 +154,7 @@ export const NAV_LABEL = {
 
 export const NAV_LABEL_SELECTED = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
-	// fontFamily: "Avenir-Black"
+	fontFamily: "Avenir-Black",
 	fontSize: 8,
 	lineHeight: 11,
 	textAlign: "left",
