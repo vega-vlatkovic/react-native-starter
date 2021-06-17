@@ -131,6 +131,7 @@ export const BUTTON_1 = {
 	color: Colors.getCompanionPurpleMid(Opacity.SOLID),
 	fontFamily: "Avenir-Heavy",
 	fontSize: 16,
+	letterSpacing: -0.18,
 	lineHeight: 22,
 	textAlign: "left",
 } as TextStyle;

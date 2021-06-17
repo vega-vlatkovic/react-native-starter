@@ -1,21 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
-import PostModel from "../models/PostModel";
+import CustomText from "../components/CustomText";
 import { PostScreenProps } from "../navigation/PostsNavigator";
 
 export interface PostScreenRouteParams {
-	post: PostModel;
+	post: any;
 }
 
 export const PostScreen: React.FC<PostScreenProps> = ({
 	route,
 }: PostScreenProps) => {
-	const { title, body } = route.params.post || {};
-
+	const { Name, Title, SupportContent } = route.params.post || {};
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>{title}</Text>
-			<Text style={styles.body}>{body}</Text>
+			<Text style={styles.title}>{Title}</Text>
+			<Text style={styles.body}>{Name}</Text>
+			<CustomText>Tpasdasd</CustomText>
 		</View>
 	);
 };

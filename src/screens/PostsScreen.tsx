@@ -1,18 +1,23 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
-  ActivityIndicator,
-  FlatList, SafeAreaView,
-  StyleSheet, View, ViewStyle
+	FlatList,
+	SafeAreaView,
+	StyleSheet,
+	View,
+	ViewStyle
 } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getPosts } from "../actions/postActions";
-import Post from "../components/Post";
+import ModuleOne from "../components/ModuleOne";
+import { articleRelatedGuide } from "../dummyData";
 import { PostsScreenProps } from "../navigation/PostsNavigator";
-import { ReduxDispatch, RootState } from "../reducers/rootReducer";
+import { ReduxDispatch } from "../reducers/rootReducer";
+
 
 export const PostsScreen: React.FC<PostsScreenProps> = () => {
 	const dispatch = useDispatch<ReduxDispatch>();
-	const { posts, isLoading } = useSelector((state: RootState) => state.posts);
+	// const { posts, isLoading } = useSelector((state: RootState) => state.posts);
+	const [data, setData] = useState(articleRelatedGuide);
 
 	const loadPosts = useCallback(() => {
 		dispatch(getPosts());
@@ -24,15 +29,15 @@ export const PostsScreen: React.FC<PostsScreenProps> = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<ActivityIndicator size={"large"} color={"black"} animating={isLoading} />
+			{/* <ActivityIndicator size={"large"} color={"black"} animating={isLoading} /> */}
 			<FlatList
-				data={posts}
+				data={data.SubSections}
 				showsVerticalScrollIndicator={false}
 				style={styles.list}
 				contentContainerStyle={styles.content}
 				ItemSeparatorComponent={() => <View style={styles.separator} />}
-				keyExtractor={(item) => item.id.toString()}
-				renderItem={({ item }) => <Post post={item} />}
+				keyExtractor={(item) => item.Name}
+				renderItem={({ item }) => <ModuleOne post={item} />}
 			/>
 		</SafeAreaView>
 	);
@@ -43,6 +48,8 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 		flex: 1,
+		// marginLeft: 30,
+		// marginRight: 36,
 	} as ViewStyle,
 	separator: {
 		height: 2,
@@ -51,7 +58,5 @@ const styles = StyleSheet.create({
 	list: {
 		flex: 1,
 	} as ViewStyle,
-	content: {
-		padding: 20,
-	} as ViewStyle,
+	content: {} as ViewStyle,
 });
