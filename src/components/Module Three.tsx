@@ -9,7 +9,7 @@ import {
 	Text,
 	TextStyle,
 	View,
-	ViewStyle
+	ViewStyle,
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
 import { BODY_LABEL, BUTTON_1 } from "../constants/fonts";

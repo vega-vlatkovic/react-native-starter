@@ -12,15 +12,20 @@ import {
 	ViewStyle,
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
-import { BODY_1, BODY_LABEL_BLUE, BUTTON_1 } from "../constants/fonts";
+import {
+	BODY_1,
+	BODY_LABEL,
+	BODY_LABEL_BLUE,
+	BUTTON_1,
+} from "../constants/fonts";
 import { ModuleProps } from "./ModuleOne";
 
 const { height: h, width } = Dimensions.get("screen");
 
-const ModuleTwo: React.FC<ModuleProps> = ({ item, onPress }) => {
+const ModuleFour: React.FC<ModuleProps> = ({ item, onPress }) => {
 	const [height, setHeight] = useState(0);
 	const [touched, setTouched] = useState(false);
-	const { BackgroundImageUrl, IntroText, Name, Touched } = item;
+	const { BackgroundImageUrl, IntroText, Name, Touched, ModuleTitle } = item;
 
 	useEffect(() => {
 		setTouched(Touched);
@@ -35,14 +40,19 @@ const ModuleTwo: React.FC<ModuleProps> = ({ item, onPress }) => {
 				<Image source={{ uri: BackgroundImageUrl }} style={styles.image} />
 			)}
 			<View style={styles.textContainer}>
+				<Text style={[styles.title, BODY_LABEL]}>{ModuleTitle}</Text>
 				<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
-				<Text style={[styles.description, BODY_1]} lineBreakMode={"tail"}>
+				<Text
+					style={[styles.description, BODY_1]}
+					// lineBreakMode={"tail"}
+					numberOfLines={3}
+				>
 					{IntroText.length < 35
 						? `${IntroText}`
-						: `${IntroText.substring(0, 50)}...`}
+						: `${IntroText.substring(0, 90)}...`}
 				</Text>
 				<View style={styles.bottomText}>
-					<Text style={[BODY_LABEL_BLUE]}>Exercise</Text>
+					<Text style={[BODY_LABEL]}>5mins | 7 Chapters</Text>
 				</View>
 			</View>
 		</Pressable>
@@ -78,7 +88,6 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: 5,
 		resizeMode: "cover",
 		width: "33%",
-		height: h / 8,
 	} as ImageStyle,
 	title: {
 		fontSize: 18,
@@ -88,4 +97,4 @@ const styles = StyleSheet.create({
 	} as TextStyle,
 });
 
-export default ModuleTwo;
+export default ModuleFour;
