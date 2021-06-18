@@ -3,4 +3,5 @@ export default interface Module {
 	Title: string;
 	Name: string;
 	Touched: boolean;
+	IntroText: string;
 }

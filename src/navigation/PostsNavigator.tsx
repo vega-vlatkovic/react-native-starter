@@ -31,7 +31,7 @@ export const PostsNavigator = (
 	props: Partial<StackNavigatorProps>
 ): React.ReactElement => {
 	return (
-		<Stack.Navigator {...props}>
+		<Stack.Navigator {...props} headerMode={"none"}>
 			<Stack.Screen name={AppRoute.POSTS} component={ModulesScreen} />
 			<Stack.Screen name={AppRoute.POST} component={PostScreen} />
 		</Stack.Navigator>
