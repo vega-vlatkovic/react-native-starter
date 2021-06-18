@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import {
 	Dimensions,
-	GestureResponderEvent,
 	Image,
 	ImageStyle,
 	Pressable,
@@ -10,30 +9,20 @@ import {
 	Text,
 	TextStyle,
 	View,
-	ViewStyle,
+	ViewStyle
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
 import { BODY_LABEL, BUTTON_1 } from "../constants/fonts";
-import Module from "../models/Module";
-
-export interface ModuleProps {
-	item: Module;
-	onPress: null | ((event: GestureResponderEvent) => void);
-}
+import { ModuleProps } from "./ModuleOne";
 
 const { height: h, width } = Dimensions.get("screen");
 
-const ModuleOne: React.FC<ModuleProps> = ({ item, onPress }) => {
-	const [height, setHeight] = useState(0);
+const ModuleThree: React.FC<ModuleProps> = ({ item, onPress }) => {
 	const [touched, setTouched] = useState(false);
-
-	const { BackgroundImageUrl, Title, Name, Touched } = item;
+	const { BackgroundImageUrl, IntroText, Name, Touched } = item;
 
 	useEffect(() => {
 		setTouched(Touched);
-
-		BackgroundImageUrl &&
-			Image.getSize(BackgroundImageUrl, (width, height) => setHeight(height));
 	}, []);
 
 	return (
@@ -41,19 +30,21 @@ const ModuleOne: React.FC<ModuleProps> = ({ item, onPress }) => {
 			{!!BackgroundImageUrl && (
 				<Image source={{ uri: BackgroundImageUrl }} style={styles.image} />
 			)}
-			<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
-			<View style={styles.bottomContainer}>
-				<Text style={BODY_LABEL}>5 mins | 7 chapters</Text>
+			<Text style={[styles.title, BUTTON_1]} numberOfLines={3}>
+				{Name}
+			</Text>
+			<View style={styles.bottomText}>
+				<Text style={[BODY_LABEL]}>3 guides</Text>
 			</View>
 		</Pressable>
 	);
 };
 
 const styles = StyleSheet.create({
-	bottomContainer: {
-		flexDirection: "column",
+	textContainer: {
+		flex: 1,
 	} as ViewStyle,
-	bottomContainerText: {} as TextStyle,
+	bottomText: {} as TextStyle,
 	container: {
 		backgroundColor: "white",
 		borderRadius: 8,
@@ -64,20 +55,24 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.25,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
+		width: width / 2,
 	} as ViewStyle,
+	description: {
+		flexWrap: "wrap",
+	} as TextStyle,
 	image: {
 		borderTopLeftRadius: 5,
 		borderTopRightRadius: 5,
 		resizeMode: "cover",
-
-		height: h * 0.2,
+		height: h / 10,
 	} as ImageStyle,
 	title: {
+		paddingVertical: 10,
 		fontSize: 18,
 		fontWeight: "bold",
-		margin: 5,
-		marginVertical: 20,
+		margin: 3,
+		flexWrap: "wrap",
 	} as TextStyle,
 });
 
-export default ModuleOne;
+export default ModuleThree;

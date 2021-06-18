@@ -1,29 +1,25 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import {
-	Dimensions, Image,
+	Dimensions,
+	Image,
 	ImageStyle,
 	Pressable,
 	StyleSheet,
 	Text,
 	TextStyle,
 	View,
-	ViewStyle
+	ViewStyle,
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
 import { BODY_1, BODY_LABEL_BLUE, BUTTON_1 } from "../constants/fonts";
-import Module from "../models/Module";
-
-interface Props {
-	item: Module;
-}
+import { ModuleProps } from "./ModuleOne";
 
 const { height: h, width } = Dimensions.get("screen");
 
-const ModuleTwo: React.FC<Props> = ({ item }) => {
+const ModuleTwo: React.FC<ModuleProps> = ({ item, onPress }) => {
 	const [height, setHeight] = useState(0);
 	const [touched, setTouched] = useState(false);
-	console.log(h, width);
 	const { BackgroundImageUrl, IntroText, Name, Touched } = item;
 
 	useEffect(() => {
@@ -33,10 +29,8 @@ const ModuleTwo: React.FC<Props> = ({ item }) => {
 			Image.getSize(BackgroundImageUrl, (width, height) => setHeight(height));
 	}, []);
 
-	console.log(height);
-
 	return (
-		<Pressable style={[styles.container, touched && TOUCHED]}>
+		<Pressable style={[styles.container, touched && TOUCHED]} onPress={onPress}>
 			{!!BackgroundImageUrl && (
 				<Image source={{ uri: BackgroundImageUrl }} style={styles.image} />
 			)}

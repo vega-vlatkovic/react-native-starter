@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, ViewStyle } from "react-native";
+import ModuleThree from "../components/Module Three";
 import ModuleOne from "../components/ModuleOne";
 import ModuleTwo from "../components/ModuleTwo";
 import { articleRelatedGuide } from "../dummyData";
@@ -8,8 +9,6 @@ import { ModulesScreenProps } from "../navigation/PostsNavigator";
 export const ModulesScreen: React.FC<ModulesScreenProps> = () => {
 	// const { posts, isLoading } = useSelector((state: RootState) => state.posts);
 	const [data, setData] = useState(articleRelatedGuide);
-
-	// console.log(data);
 
 	// const loadPosts = useCallback(() => {
 	// 	dispatch(getPosts());
@@ -21,24 +20,29 @@ export const ModulesScreen: React.FC<ModulesScreenProps> = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			{/* <ActivityIndicator size={"large"} color={"black"} animating={isLoading} /> */}
 			<ScrollView>
 				{data.SubSections.map((item) => (
-					<ModuleOne item={item} key={item.Name} />
+					<ModuleThree
+						item={item}
+						key={item.Name}
+						onPress={(_) => console.log("Module Three")}
+					/>
 				))}
 				{data.SubSections.map((item) => (
-					<ModuleTwo item={item} key={item.Name} />
+					<ModuleOne
+						item={item}
+						key={item.Name}
+						onPress={(_) => console.log("Module One")}
+					/>
+				))}
+				{data.SubSections.map((item) => (
+					<ModuleTwo
+						item={item}
+						key={item.Name}
+						onPress={(_) => console.log("Module Two")}
+					/>
 				))}
 			</ScrollView>
-			{/* <FlatList
-				data={data.SubSections}
-				showsVerticalScrollIndicator={false}
-				style={styles.list}
-				// contentContainerStyle={styles.content}
-				// ItemSeparatorComponent={() => <View style={styles.separator} />}
-				keyExtractor={(item) => item.Name}
-				renderItem={({ item }) => <ModuleOne item={item} />}
-			/> */}
 		</SafeAreaView>
 	);
 };
