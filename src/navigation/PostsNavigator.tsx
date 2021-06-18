@@ -1,12 +1,12 @@
-import { AppRoute } from "./routes";
-import React from "react";
+import { RouteProp } from "@react-navigation/native";
 import {
 	createStackNavigator,
 	StackNavigationProp,
 } from "@react-navigation/stack";
-import { RouteProp } from "@react-navigation/native";
-import { PostsScreen } from "../screens/PostsScreen";
+import React from "react";
+import { ModulesScreen } from "../screens/ModulesScreen";
 import { PostScreen, PostScreenRouteParams } from "../screens/PostScreen";
+import { AppRoute } from "./routes";
 
 type StackNavigatorProps = React.ComponentProps<typeof Stack.Navigator>;
 
@@ -15,7 +15,7 @@ export type AppNavigatorParams = {
 	[AppRoute.POST]: PostScreenRouteParams;
 };
 
-export interface PostsScreenProps {
+export interface ModulesScreenProps {
 	navigation: StackNavigationProp<AppNavigatorParams, AppRoute.POSTS>;
 	route: RouteProp<AppNavigatorParams, AppRoute.POSTS>;
 }
@@ -32,7 +32,7 @@ export const PostsNavigator = (
 ): React.ReactElement => {
 	return (
 		<Stack.Navigator {...props}>
-			<Stack.Screen name={AppRoute.POSTS} component={PostsScreen} />
+			<Stack.Screen name={AppRoute.POSTS} component={ModulesScreen} />
 			<Stack.Screen name={AppRoute.POST} component={PostScreen} />
 		</Stack.Navigator>
 	);

@@ -1,6 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	Image,
 	ImageStyle,
@@ -13,18 +12,19 @@ import {
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
 import { BODY_LABEL, BUTTON_1 } from "../constants/fonts";
-import { AppRoute } from "../navigation/routes";
+import Module from "../models/Module";
 
 interface Props {
-	post: any;
+	item: Module;
 }
 
-const ModuleOne: React.FC<Props> = ({ post }: any) => {
+const MAX_HEIGTH = 100;
+
+const ModuleOne: React.FC<Props> = ({ item }) => {
 	const [height, setHeight] = useState(0);
 	const [touched, setTouched] = useState(false);
-	const navigation = useNavigation();
 
-	const { BackgroundImageUrl, Title, Name, Touched } = post;
+	const { BackgroundImageUrl, Title, Name, Touched } = item;
 
 	useEffect(() => {
 		setTouched(Touched);
@@ -33,19 +33,17 @@ const ModuleOne: React.FC<Props> = ({ post }: any) => {
 			Image.getSize(BackgroundImageUrl, (width, height) => setHeight(height));
 	}, []);
 
-	const handleNavigation = useCallback(() => {
-		navigation.navigate(AppRoute.POST, { post });
-	}, [navigation, post]);
+	console.log(height);
 
 	return (
-		<Pressable
-			onPress={handleNavigation}
-			style={[styles.container, touched && TOUCHED]}
-		>
+		<Pressable style={[styles.container, touched && TOUCHED]}>
 			{!!BackgroundImageUrl && (
 				<Image
 					source={{ uri: BackgroundImageUrl }}
-					style={{ ...styles.image, height }}
+					style={{
+						...styles.image,
+						height: MAX_HEIGTH > height ? height : MAX_HEIGTH,
+					}}
 				/>
 			)}
 			<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
@@ -62,27 +60,25 @@ const styles = StyleSheet.create({
 	} as ViewStyle,
 	bottomContainerText: {} as TextStyle,
 	container: {
-		flex: 1,
-		padding: 12,
-		marginVertical: 10,
+		backgroundColor: "white",
 		borderRadius: 8,
+		elevation: 2,
+		marginVertical: 10,
+		padding: 12,
 		shadowColor: "black",
 		shadowOpacity: 0.25,
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
-		elevation: 2,
-		backgroundColor: "white",
 	} as ViewStyle,
 	image: {
-		maxHeight: 140,
-		resizeMode: "cover",
 		borderTopLeftRadius: 5,
 		borderTopRightRadius: 5,
+		resizeMode: "cover",
 	} as ImageStyle,
 	title: {
-		margin: 5,
 		fontSize: 18,
 		fontWeight: "bold",
+		margin: 5,
 		marginVertical: 20,
 	} as TextStyle,
 });

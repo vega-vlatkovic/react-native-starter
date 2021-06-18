@@ -3,13 +3,13 @@ import {
 	FETCH_POST_FULLFILED,
 	FETCH_POST_REJECTED,
 } from "../constants/postConstants";
-import PostModel from "../models/PostModel";
+import Module from "../models/Module";
 import { RootState } from "../reducers/rootReducer";
 import PostService from "../services/PostService";
 
 export type PostsAction =
 	| { type: FETCH_POST_PENDING }
-	| { type: FETCH_POST_FULLFILED; payload: Array<PostModel> }
+	| { type: FETCH_POST_FULLFILED; payload: Array<Module> }
 	| { type: FETCH_POST_REJECTED; error: string };
 
 type GetState = () => RootState;

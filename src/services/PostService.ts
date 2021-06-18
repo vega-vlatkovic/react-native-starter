@@ -1,18 +1,18 @@
 import axios from "axios";
 import Config from "react-native-config";
-import PostModel from "../models/PostModel";
+import Module from "../models/Module";
 
 interface PostService {
-  fetchPosts(): Promise<Array<PostModel>>;
+  fetchPosts(): Promise<Array<Module>>;
 }
 
 class PostAxiosService implements PostService {
-  async fetchPosts(): Promise<Array<PostModel>> {
+  async fetchPosts(): Promise<Array<Module>> {
     try {
       const res = await axios
         .get(`${Config.API_URL}/posts/`);
       const data = res.data;
-      return data as Array<PostModel>;
+      return data as Array<Module>;
     } catch (error) {
       return await Promise.reject(error);
     }

@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	text: {
-		fontFamily: "OpenSans-Regular",
+		fontFamily: "Avenir-Heavy",
 	} as TextStyle,
 });
