@@ -9,7 +9,7 @@ import {
 	Text,
 	TextStyle,
 	View,
-	ViewStyle,
+	ViewStyle
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
 import { BODY_1, BODY_LABEL_BLUE, BUTTON_1 } from "../constants/fonts";
@@ -36,7 +36,7 @@ const ModuleTwo: React.FC<ModuleProps> = ({ item, onPress }) => {
 			)}
 			<View style={styles.textContainer}>
 				<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
-				<Text style={[styles.description, BODY_1]} lineBreakMode={"tail"}>
+				<Text style={[styles.description, BODY_1]}>
 					{IntroText.length < 35
 						? `${IntroText}`
 						: `${IntroText.substring(0, 50)}...`}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="exercise-regular" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-1{fill:#212d58}
+        </style>
+    </defs>
+    <path id="clock-regular" d="M16 8a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm0 14.452A6.452 6.452 0 1 1 22.452 16 6.45 6.45 0 0 1 16 22.452z" class="cls-1" transform="translate(-8 -8)"/>
+    <circle id="Ellipse_659" cx="2" cy="2" r="2" class="cls-1" transform="translate(6 6)"/>
+    <g id="Ellipse_660" fill="none" stroke="#212d58" transform="translate(3 3)">
+        <circle cx="5" cy="5" r="5" stroke="none"/>
+        <circle cx="5" cy="5" r="4.5"/>
+    </g>
+</svg>

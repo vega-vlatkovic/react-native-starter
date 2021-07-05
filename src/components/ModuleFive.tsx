@@ -2,7 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import {
 	Dimensions,
-	GestureResponderEvent,
 	Image,
 	ImageStyle,
 	Pressable,
@@ -13,23 +12,15 @@ import {
 	ViewStyle,
 } from "react-native";
 import { TOUCHED } from "../constants/constants";
-import { BODY_LABEL, BUTTON_1 } from "../constants/fonts";
-import Module from "../models/Module";
-
-import ClockRegular from "../../assets/images/clock-regular.svg";
-
-export interface ModuleProps {
-	item: Module;
-	onPress: null | ((event: GestureResponderEvent) => void);
-}
+import { BODY_1, BODY_LABEL_RED, BUTTON_1 } from "../constants/fonts";
+import { ModuleProps } from "./ModuleOne";
 
 const { height: h, width } = Dimensions.get("screen");
 
-const ModuleOne: React.FC<ModuleProps> = ({ item, onPress }) => {
+const ModuleFive: React.FC<ModuleProps> = ({ item, onPress }) => {
 	const [height, setHeight] = useState(0);
 	const [touched, setTouched] = useState(false);
-
-	const { BackgroundImageUrl, Title, Name, Touched } = item;
+	const { BackgroundImageUrl, IntroText, Name, Touched, ModuleTitle } = item;
 
 	useEffect(() => {
 		setTouched(Touched);
@@ -40,24 +31,33 @@ const ModuleOne: React.FC<ModuleProps> = ({ item, onPress }) => {
 
 	return (
 		<Pressable style={[styles.container, touched && TOUCHED]} onPress={onPress}>
+			<View style={styles.textContainer}>
+				<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
+				<Text style={[BODY_LABEL_RED]}>Anxiety</Text>
+				<Text style={[styles.description, BODY_1]} numberOfLines={3}>
+					{IntroText.length < 35
+						? `${IntroText}`
+						: `${IntroText.substring(0, 120)}...`}
+				</Text>
+			</View>
 			{!!BackgroundImageUrl && (
 				<Image source={{ uri: BackgroundImageUrl }} style={styles.image} />
 			)}
-			<Text style={[styles.title, BUTTON_1]}>{Name}</Text>
-			<View style={styles.bottomContainer}>
-				<ClockRegular height={15} width={15}/>
-				<Text style={BODY_LABEL}>5 mins | 7 chapters</Text>
-			</View>
 		</Pressable>
 	);
 };
 
 const styles = StyleSheet.create({
-	bottomContainer: {
-		flexDirection: "column",
+	textContainer: {
+		paddingRight: 12,
+		flex: 1,
 	} as ViewStyle,
 	bottomContainerText: {} as TextStyle,
+	bottomText: {
+		justifyContent: "flex-end",
+	} as TextStyle,
 	container: {
+		flexDirection: "row",
 		backgroundColor: "white",
 		borderRadius: 8,
 		elevation: 2,
@@ -68,19 +68,22 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 0, height: 2 },
 		shadowRadius: 10,
 	} as ViewStyle,
+	description: {
+		flexWrap: "wrap",
+	} as TextStyle,
 	image: {
-		borderTopLeftRadius: 5,
 		borderTopRightRadius: 5,
+		borderBottomRightRadius: 5,
 		resizeMode: "cover",
-
-		height: h * 0.2,
+		width: "33%",
+		height: h / 6,
 	} as ImageStyle,
 	title: {
 		fontSize: 18,
 		fontWeight: "bold",
-		margin: 5,
-		marginVertical: 20,
+		margin: 3,
+		flexWrap: "wrap",
 	} as TextStyle,
 });
 
-export default ModuleOne;
+export default ModuleFive;

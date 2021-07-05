@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, ViewStyle } from "react-native";
 import ModuleThree from "../components/Module Three";
+import ModuleFive from "../components/ModuleFive";
 import ModuleFour from "../components/ModuleFour";
 import ModuleOne from "../components/ModuleOne";
 import ModuleTwo from "../components/ModuleTwo";
@@ -26,7 +27,14 @@ export const ModulesScreen: React.FC<ModulesScreenProps> = () => {
 					<ModuleFour
 						item={item}
 						key={item.Name}
-						onPress={(_) => console.log("Module Three")}
+						onPress={(_) => console.log("Module Four")}
+					/>
+				))}
+				{data.SubSections.map((item) => (
+					<ModuleFive
+						item={item}
+						key={item.Name}
+						onPress={(_) => console.log("Module Four")}
 					/>
 				))}
 				{data.SubSections.map((item) => (
@@ -60,10 +68,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: "7%",
 	} as ViewStyle,
-	// separator: {
-	// 	height: 2,
-	// 	backgroundColor: "black",
-	// } as ViewStyle,
 	list: {
 		flex: 1,
 	} as ViewStyle,
